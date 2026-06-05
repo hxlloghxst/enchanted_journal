@@ -54,7 +54,7 @@ const EventDetails = ({ event }) => {
       {/* Description - only show if it exists */}
       {event.description && (
         <p className="event-desc">
-          {event.description}
+          <div dangerouslySetInnerHTML={{ __html: event.description }} />
         </p>
       )}
 
