@@ -13,6 +13,7 @@
 // Import React hooks - these are special functions React gives us
 // useState: Lets us store data that can change (like our events list)
 // useEffect: Lets us do things when the component first loads (like fetching data)
+import FallingParticles from './FallingParticles';
 import { useEffect, useState } from 'react';
 
 // Import our utility function to fetch events from Google Calendar
@@ -87,6 +88,9 @@ const App = () => {
    */
   return (
     <div className="app">
+      {/* Dynamic particle engine that spawns the star and heart shower */}
+      <FallingParticles />
+
       {/* Header component - displays logo and social media links */}
       <Header />
 

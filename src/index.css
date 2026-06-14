@@ -17,7 +17,8 @@ body {
   margin: 0;
   min-height: 100vh;
   min-width: 320px;
-  background-image: var(--bg-image);
+  /* background-image: var(--bg-image); */
+  background-color: #2c1c41;
   background-size: contain;
   background-repeat: repeat;
   color: var(--text-black);
