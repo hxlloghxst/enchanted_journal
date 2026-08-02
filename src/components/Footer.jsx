@@ -22,6 +22,8 @@ const Footer = () => {
         alt="Decorative bow" 
         className="footer-bow bow" 
       />
+      <cta>enchanted.journal.club@gmail.com
+      </cta>
     </footer>
   );
 };

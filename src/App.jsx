@@ -101,9 +101,6 @@ const App = () => {
 
       {/* Footer component - displays decorative bow image */}
       <Footer />
-       <cta>
-        enchanted.journal.club@gmail.com
-      </cta>
     </div>
   );
 };
