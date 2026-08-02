@@ -93,6 +93,7 @@ const App = () => {
 
       {/* Header component - displays logo and social media links */}
       <Header />
+      <tagline> A cozy, creative community</tagline>
 
       {/* EventList component - displays all events
           We pass the events array as a "prop" so EventList can display them */}
@@ -100,6 +101,9 @@ const App = () => {
 
       {/* Footer component - displays decorative bow image */}
       <Footer />
+       <cta>
+        enchanted.journal.club@gmail.com
+      </cta>
     </div>
   );
 };

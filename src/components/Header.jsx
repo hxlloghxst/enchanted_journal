@@ -10,7 +10,7 @@
 
 import SocialLink from './SocialLink';
 import { SOCIAL_LINKS } from '../constants';
-import mainLogo from '../assets/enchanted-journal-club-logo.png';
+import mainLogo from '../assets/ejc_2.png';
 
 const Header = () => {
   /**
@@ -31,6 +31,7 @@ const Header = () => {
           src={mainLogo} 
           alt="Enchanted Journal Club Logo" 
           className="footer-bow logo" 
+          style={{ width: '400px', height: 'auto' }}
         />
       </div>
 

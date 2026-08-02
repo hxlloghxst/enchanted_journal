@@ -39,6 +39,41 @@ const EventDetails = ({ event }) => {
   // For example: "Austin, TX" becomes "Austin"
   const locationName = event.location ? event.location.split(',')[0] : '';
 
+  // Bulletproof Helper to construct Google Calendar link
+  const getAddToCalendarUrl = () => {
+    try {
+      const baseUrl = "https://calendar.google.com/calendar/render";
+
+      // Safely check if event.start exists and has .format
+      const startTime = event.start && typeof event.start.format === 'function'
+        ? event.start.format('YYYYMMDDTHHmmss')
+        : '';
+
+      const endTime = event.end && typeof event.end.format === 'function'
+        ? event.end.format('YYYYMMDDTHHmmss')
+        : startTime;
+
+      // Safely grab a title string
+      const eventTitle = typeof event.title === 'string' 
+        ? event.title 
+        : (typeof event.summary === 'string' ? event.summary : 'Event');
+
+      const params = new URLSearchParams({
+        action: "TEMPLATE",
+        text: eventTitle,
+        dates: `${startTime}/${endTime}`,
+        details: event.description || "",
+        location: event.location || ""
+      });
+
+      return `${baseUrl}?${params.toString()}`;
+    } catch (err) {
+      console.error("Error generating calendar link:", err);
+      // Fallback to original link if something fails so the site never crashes
+      return event.htmlLink || "#";
+    }
+  };
+
   return (
     <div className="event-details">
       {/* Day of the week (e.g., "Monday", "Tuesday") */}
@@ -67,10 +102,10 @@ const EventDetails = ({ event }) => {
         />
       )}
 
-      {/* "Add to Calendar" button - always show this */}
+      {/* "Add to Calendar" button - updated to use intent link */}
       <Button
         text="Add to Calendar"
-        href={event.htmlLink}
+        href={getAddToCalendarUrl()}
         className="calendar-button"
       />
     </div>
